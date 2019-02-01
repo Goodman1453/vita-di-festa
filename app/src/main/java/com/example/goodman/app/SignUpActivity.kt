@@ -1,4 +1,4 @@
-package com.example.goodman.budgetwallet
+package com.example.goodman.app
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,24 +7,51 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import android.widget.Toast
+import com.google.android.gms.tasks.Task
+import android.support.annotation.NonNull
+import android.support.v4.app.FragmentActivity
+import com.google.android.gms.tasks.OnCompleteListener
+
+
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var usernameAndSurname: TextView
     private lateinit var signUpbtn: Button
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var verifyButton: Button
+    private lateinit var verifyEmail: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         firebaseAuth = FirebaseAuth.getInstance()
         signUpbtn = sign_up_button
+        verifyButton = verification_button
+        verifyEmail = sign_up_email_verification
         signUpbtn.setOnClickListener {
             attemptSignUp()
+        }
+
+        verifyButton.setOnClickListener {
+            if(isEmailValid(verifyEmail.text.toString())){
+                val user = firebaseAuth.currentUser
+                user!!.sendEmailVerification().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        Log.d("x", "trial1")
+
+                    }else{
+
+                    }
+                }
+
+            }else{
+
+            }
         }
     }
 

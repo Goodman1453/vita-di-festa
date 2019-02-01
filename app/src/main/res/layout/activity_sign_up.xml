@@ -5,7 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg"
-    tools:context=".SignUpActivity">
+    tools:context="com.example.goodman.app.SignUpActivity">
+
+    <LinearLayout
+        android:id="@+id/email_verification"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:background="@drawable/rectangle"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_margin="15dp"
+            android:textColorHint="@color/silver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/sign_up_email_verification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@color/white_colour"
+                android:textCursorDrawable="@null"
+                android:maxLines="1"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/verified"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="15dp"
+                android:text="Not Verified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/verification_button"
+            android:layout_margin="15dp"
+            android:text="Verify"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#ffffff"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/sign_up_container"
@@ -15,6 +63,7 @@
         android:orientation="vertical"
         android:background="@drawable/rectangle"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputLayout

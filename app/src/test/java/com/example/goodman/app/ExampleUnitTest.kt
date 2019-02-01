@@ -1,4 +1,4 @@
-package com.example.goodman.budgetwallet
+package com.example.goodman.app
 
 import org.junit.Test
 

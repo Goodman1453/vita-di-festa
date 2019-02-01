@@ -1,4 +1,4 @@
-package com.example.goodman.budgetwallet
+package com.example.goodman.app
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -27,11 +27,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
           passwordEditText.visibility = View.GONE
           confirmPasswordEditText.visibility = View.GONE
-          submitBtn.text = "SUBMIT"
+          submitBtn.text = getString(R.string.submit)
 
           submitBtn.setOnClickListener {
-              //                  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
               Log.d("SubmitBtn", "email submitted")
           }
 

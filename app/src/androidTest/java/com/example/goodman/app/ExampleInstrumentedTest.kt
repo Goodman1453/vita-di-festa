@@ -1,4 +1,4 @@
-package com.example.goodman.budgetwallet
+package com.example.goodman.app
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
