@@ -38,30 +38,17 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         verifyButton.setOnClickListener {
-            if(isEmailValid(verifyEmail.text.toString())){
-                val user = firebaseAuth.currentUser
-                user!!.sendEmailVerification().addOnCompleteListener { task ->
-                    if(task.isSuccessful){
-                        Log.d("x", "trial1")
-
-                    }else{
-
-                    }
-                }
-
-            }else{
-
-            }
+        attemptSignUp()
         }
     }
 
     private fun attemptSignUp() {
 
-        sign_up_email.error = null
+        sign_up_email_verification.error = null
         sign_up_password.error = null
 
         // Store values at the time of the login attempt.
-        val emailStr = sign_up_email.text.toString()
+        val emailStr = sign_up_email_verification.text.toString()
         val passwordStr = sign_up_password.text.toString()
         val confirmPasswordStr = confirm_password.text.toString()
 
@@ -77,12 +64,12 @@ class SignUpActivity : AppCompatActivity() {
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(emailStr)) {
-            email.error = getString(R.string.error_field_required)
-            focusView = email
+            sign_up_email_verification.error = getString(R.string.error_field_required)
+            focusView = sign_up_email_verification
             cancel = true
         } else if (!isEmailValid(emailStr)) {
-            email.error = getString(R.string.error_invalid_email)
-            focusView = email
+            sign_up_email_verification.error = getString(R.string.error_invalid_email)
+            focusView = sign_up_email_verification
             cancel = true
         }
 
