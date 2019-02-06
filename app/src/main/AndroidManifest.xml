@@ -34,7 +34,7 @@
             android:name=".ForgotPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".landingActivity"
+            android:name=".LandingActivity"
             android:label="@string/title_activity_landing"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

@@ -50,7 +50,6 @@ class SignUpActivity : AppCompatActivity() {
         // Store values at the time of the login attempt.
         val emailStr = sign_up_email_verification.text.toString()
         val passwordStr = sign_up_password.text.toString()
-        val confirmPasswordStr = confirm_password.text.toString()
 
         var cancel = false
         var focusView: View? = null

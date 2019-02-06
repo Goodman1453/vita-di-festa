@@ -1,5 +1,6 @@
 package com.example.goodman.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -46,7 +48,14 @@ class ForgotPasswordActivity : AppCompatActivity() {
               var user = firebaseAuth.currentUser
               firebaseAuth.sendPasswordResetEmail(emailEditText.text.toString()).addOnCompleteListener { task ->
                   if (task.isSuccessful) {
+                      firebaseAuth.signOut()
                       val user = firebaseAuth.currentUser
+                      task.isComplete
+                      var intent = Intent(applicationContext, LoginActivity::class.java)
+                      startActivity(intent)
+                  }else{
+                      Toast.makeText(baseContext, task.exception!!.message,
+                              Toast.LENGTH_SHORT).show()
                   }
               }
 

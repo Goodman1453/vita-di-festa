@@ -11,7 +11,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_landing.*
 import kotlinx.android.synthetic.main.app_bar_landing.*
 
-class landingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class LandingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

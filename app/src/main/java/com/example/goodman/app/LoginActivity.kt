@@ -51,7 +51,7 @@ class LoginActivity : Activity() {
     private fun updateUI(user: FirebaseUser?) {
 
         if(user != null){
-            intent = Intent(applicationContext, landingActivity::class.java)
+            intent = Intent(applicationContext, LandingActivity::class.java)
             startActivity(intent)
         }else {
             Toast.makeText(baseContext, user.toString(),
